@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Ai = () => {
-  return <div>Ai</div>;
+  return <div>This is ai section</div>;
 };
