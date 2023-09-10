@@ -6,11 +6,12 @@ import {
 } from "react-chat-engine-advanced";
 import { Header } from "../customHeader/Header";
 import { StandardMessageForm } from "../customMessageForms/StandardMessageForm";
+import { Ai } from "../customMessageForms/Ai";
 
 const Chat = () => {
   const chatProps = useMultiChatLogic(
     // import.meta.env.CHAT_PROJECT_ID,
-    "e7421e36-2635-4617-80d9-c053799a51da",
+    "bcc20375-853b-4bdd-953d-0ee4f9654a78",
     "testuser",
     "1234"
   );
@@ -21,9 +22,14 @@ const Chat = () => {
         {...chatProps}
         style={{ height: "100vh" }}
         renderChatHeader={(chat) => <Header chat={chat} />}
-        renderMessageForm={(props) => (
-          <StandardMessageForm props={props} activeChat={chatProps.chat} />
-        )}
+        renderMessageForm={(props) => {
+          if (chatProps.chat?.title.startsWith("AiChat_")) {
+            return <Ai props={props} activeChat={chatProps.chat} />;
+          }
+          return (
+            <StandardMessageForm props={props} activeChat={chatProps.chat} />
+          );
+        }}
       />
     </div>
   );
