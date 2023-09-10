@@ -3,8 +3,6 @@ import { MessageFormUI } from "./MessageFormUi";
 import { usePostAiTextMutation } from "@/state/api";
 
 export const Ai = ({ props, activeChat }) => {
-  console.log(props);
-  console.log(activeChat);
   const [message, setMessage] = useState("");
 
   const [attachment, setAttachment] = useState("");
@@ -33,11 +31,12 @@ export const Ai = ({ props, activeChat }) => {
     setMessage("");
     setAttachment("");
   };
-  return;
-  <MessageFormUI
-    setAttachment={setAttachment}
-    message={message}
-    handleOnChange={handleOnChnage}
-    handleOnSubmit={handleOnSubmit}
-  />;
+  return (
+    <MessageFormUI
+      setAttachment={setAttachment}
+      message={message}
+      handleOnChange={handleOnChnage}
+      handleOnSubmit={handleOnSubmit}
+    />
+  );
 };
