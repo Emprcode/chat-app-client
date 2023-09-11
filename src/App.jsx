@@ -12,6 +12,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 
 const API_KEY = import.meta.env.OPENAI_API_KEY;
+
 const App = () => {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
@@ -52,7 +53,8 @@ const App = () => {
 
     const systemMessage = {
       role: "system",
-      content: "Explain all content like i am 10 year old",
+      content:
+        "write resume as a professional resume maker. your name is resume man",
     };
 
     const apiRequestBody = {
@@ -97,6 +99,7 @@ const App = () => {
                     <TypingIndicator content="ChatGPT is typing" />
                   ) : null
                 }>
+                <h1>This my my new chatGPT</h1>
                 {messages?.map((message, i) => {
                   return <Message key={i} model={message} />;
                 })}
