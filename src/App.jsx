@@ -19,8 +19,7 @@ const App = () => {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message:
-        "Hello, I am ChatGPT, I am here to help you, Please ask me questions",
+      message: "Hello, I am ChatGPT, I am here to help you with your queries",
       sender: "ChatGPT",
     },
   ]);
@@ -88,6 +87,7 @@ const App = () => {
         setTyping(false);
       });
   };
+
   return (
     <>
       <Container className="p-4">
