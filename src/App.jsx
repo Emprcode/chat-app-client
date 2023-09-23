@@ -12,8 +12,7 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import { Container } from "react-bootstrap";
 
-// const API_KEY = import.meta.env.OPENAI_API_KEY;
-// const API_KEY = "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";
+const API_KEY = import.meta.env.OPENAI_API_KEY;
 
 const App = () => {
   const [typing, setTyping] = useState(false);
