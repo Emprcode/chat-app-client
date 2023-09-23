@@ -10,14 +10,17 @@ import {
   MessageInput,
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
+import { Container } from "react-bootstrap";
 
-const API_KEY = import.meta.env.OPENAI_API_KEY;
+// const API_KEY = import.meta.env.OPENAI_API_KEY;
+// const API_KEY = "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";
 
 const App = () => {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I am ChatGPT",
+      message:
+        "Hello, I am ChatGPT, I am here to help you, Please ask me questions",
       sender: "ChatGPT",
     },
   ]);
@@ -53,8 +56,7 @@ const App = () => {
 
     const systemMessage = {
       role: "system",
-      content:
-        "write resume as a professional resume maker. your name is resume man",
+      content: "write me answer as i am 20 year old",
     };
 
     const apiRequestBody = {
@@ -88,30 +90,33 @@ const App = () => {
   };
   return (
     <>
-      <div className="">
-        <div style={{ position: "relative", height: "550px", width: "800px" }}>
-          <MainContainer>
-            <ChatContainer>
-              <MessageList
-                scrollBehavior="smooth"
-                typingIndicator={
-                  typing ? (
-                    <TypingIndicator content="ChatGPT is typing" />
-                  ) : null
-                }>
-                <h1>This my my new chatGPT</h1>
-                {messages?.map((message, i) => {
-                  return <Message key={i} model={message} />;
-                })}
-              </MessageList>
-              <MessageInput
-                placeholder="Type message here"
-                onSend={handleSend}
-              />
-            </ChatContainer>
-          </MainContainer>
+      <Container className="p-4">
+        <div className="">
+          <div style={{ position: "relative", height: "80vh", width: "100%" }}>
+            <h1 className="fw-bold text-center"> Welcome to ChatGPT</h1>
+            <MainContainer>
+              <ChatContainer>
+                <MessageList
+                  className="p-2"
+                  scrollBehavior="smooth"
+                  typingIndicator={
+                    typing ? (
+                      <TypingIndicator content="ChatGPT is typing" />
+                    ) : null
+                  }>
+                  {messages?.map((message, i) => {
+                    return <Message key={i} model={message} />;
+                  })}
+                </MessageList>
+                <MessageInput
+                  placeholder="Type message here"
+                  onSend={handleSend}
+                />
+              </ChatContainer>
+            </MainContainer>
+          </div>
         </div>
-      </div>
+      </Container>
     </>
   );
 };
